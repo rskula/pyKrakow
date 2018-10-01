@@ -6,6 +6,6 @@ def dollar(arg0, i):
     i+=1
     if i < len(arg0):
       dollar(arg0, i)
-word = input('Podaj $lowo: ')
 
+word = input('Podaj $lowo: ')
 dollar(word,0)

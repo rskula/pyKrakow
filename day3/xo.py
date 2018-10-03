@@ -1,1 +1,0 @@
-XO = input('Podaj XO: ')

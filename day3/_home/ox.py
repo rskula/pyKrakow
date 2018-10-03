@@ -6,20 +6,17 @@
 def tictactoe(game, turn):
     ##Print the board
     def printboard():
-        print('\n'+game[0] + "|" + game[1] + "|" + game[2])
+        print('\n' + game[0] + "|" + game[1] + "|" + game[2])
         print(game[3] + "|" + game[4] + "|" + game[5])
-        print(game[6] + "|" + game[7] + "|" + game[8])
+        print(game[6] + "|" + game[7] + "|" + game[8] + '\n')
+
     printboard()
 
     ##Set player's choice
     i = False
-    while not i: i = input('\nPodaj indeks \"' + turn + '\": ')
-    if not i.isdigit(): exit(1)
+    while not i or not i.isdigit() or game[int(i)] != ' ' : i = input('Podaj nowy indeks \"' + turn + '\": ')
 
-    while game[int(i)] != ' ':
-        i = input('Indeks zajety, podaj indeks: ')
-
-    game = game[0:int(i)] + turn + game[int(i)+1:]
+    game = game[0:int(i)] + turn + game[int(i) + 1:]
 
     ##Viva Las Vegas
     match = False
@@ -34,16 +31,19 @@ def tictactoe(game, turn):
 
     if match:
         printboard()
-        return('\nWygrywa ' + turn + '!')
+        return ('Wygrywa ' + turn + '!')
     elif game.count(' ') == 0:
         printboard()
-        return '\nPamietasz \"Gry Wojenne\"?'
+        return 'Pamietasz \"Gry Wojenne\"?'
     else:
 
-        #Switch player and go again
-        if turn == 'o': turn = 'x'
-        else: turn ='o'
-        return(tictactoe(game, turn))
+        # Switch player and go again
+        if turn == 'o':
+            turn = 'x'
+        else:
+            turn = 'o'
+        return (tictactoe(game, turn))
+
 
 ##tictactoe(plansza startowa, pierwszy gracz)
 print(tictactoe('         ', 'o'))

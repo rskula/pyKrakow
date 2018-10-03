@@ -3,6 +3,10 @@
 ## Sprawdz czy gracz wygral
 ## Nastepny gracz
 
+player1 = False
+while not player1 or not (player1 == 'o' or player1 =='x'):
+        player1 = input('Kto zaczyna? ')
+
 def tictactoe(game, turn):
     ##Print the board
     def printboard():
@@ -14,7 +18,8 @@ def tictactoe(game, turn):
 
     ##Set player's choice
     i = False
-    while not i or not i.isdigit() or int(i) > 8 or game[int(i)] != ' ' : i = input('Podaj nowy indeks \"' + turn + '\": ')
+    while not i or not i.isdigit() or int(i) > 8 or game[int(i)] != ' ':
+        i = input('Podaj nowy indeks \"' + turn + '\": ')
 
     game = game[0:int(i)] + turn + game[int(i) + 1:]
 
@@ -46,4 +51,4 @@ def tictactoe(game, turn):
 
 
 ##tictactoe(plansza startowa, pierwszy gracz)
-print(tictactoe('         ', 'o'))
+print(tictactoe('         ', player1))

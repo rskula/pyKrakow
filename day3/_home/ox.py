@@ -12,7 +12,8 @@ def tictactoe(game, turn):
     printboard()
 
     ##Set player's choice
-    i = input('\nPodaj indeks \"' + turn + '\": ')
+    i = False
+    while not i: i = input('\nPodaj indeks \"' + turn + '\": ')
     if not i.isdigit(): exit(1)
 
     while game[int(i)] != ' ':

@@ -14,7 +14,7 @@ def tictactoe(game, turn):
 
     ##Set player's choice
     i = False
-    while not i or not i.isdigit() or game[int(i)] != ' ' : i = input('Podaj nowy indeks \"' + turn + '\": ')
+    while not i or not i.isdigit() or int(i) > 8 or game[int(i)] != ' ' : i = input('Podaj nowy indeks \"' + turn + '\": ')
 
     game = game[0:int(i)] + turn + game[int(i) + 1:]
 
